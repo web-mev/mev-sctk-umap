@@ -1,0 +1,36 @@
+{
+    "name": "SCTK UMAP dimensional reduction", 
+    "description": "This analysis executes UMAP (https://arxiv.org/abs/1802.03426) for reducing the dimension of your data. Typical for single-cell RNA-seq, we first perform a principal components analysis (PCA), which reduces the dimension of the data prior to running the UMAP algorithm.", 
+    "inputs": {
+        "SctkUmapDimensionReduce.raw_counts": {
+            "description": "The input raw count matrix. Must be an integer-based table. If you have output from a vendor, such as CellRanger, you must first pre-process to create a suitable count matrix.", 
+            "name": "Count matrix:", 
+            "required": true, 
+            "spec": {
+                "attribute_type": "DataResource", 
+                "resource_types": ["I_MTX", "RNASEQ_COUNT_MTX"], 
+                "many": false
+            }
+        }, 
+        "SctkUmapDimensionReduce.pca_dim": {
+            "description": "Prior to executing UMAP, we first reduce the space of the data using a principal components (PCA) projection. Unless you understand what you are doing, leave the default value. Using fewer PCA dimensions can result in data loss that may be undesirable.", 
+            "name": "Number of principal components for pre-processing:", 
+            "required": false, 
+            "spec": {
+                "attribute_type": "PositiveInteger",
+                "default": 50
+            }
+        }
+    }, 
+    "outputs": {
+        "SctkUmapDimensionReduce.umap_output": {
+            "spec": {
+                "attribute_type": "DataResource", 
+                "resource_type": "MTX",
+                "many": false
+            }
+        }
+    }, 
+    "mode": "cromwell",
+    "workspace_operation": true
+}

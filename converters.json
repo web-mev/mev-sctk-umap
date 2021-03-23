@@ -1,0 +1,4 @@
+{
+    "raw_counts":"api.converters.data_resource.CromwellSingleDataResourceConverter", 
+    "pca_dim": "api.converters.basic_attributes.IntegerConverter"
+}
