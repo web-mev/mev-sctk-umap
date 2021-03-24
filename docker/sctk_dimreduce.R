@@ -6,10 +6,6 @@ RAW_COUNT_MATRIX <- args[1]
 PCA_DIM <- as.integer(args[2]) # how many PCA dimensions to use in the 'pre-reduction' prior to umap
 OUTPUT_UMAP_BASE <- args[3]
 
-# change the working directory to co-locate with the counts file:
-working_dir <- dirname(RAW_COUNT_MATRIX)
-setwd(working_dir)
-
 # Import counts as a 
 counts <- read.table(
     file = RAW_COUNT_MATRIX,
