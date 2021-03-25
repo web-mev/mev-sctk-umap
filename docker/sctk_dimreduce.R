@@ -38,4 +38,7 @@ sce <- getUMAP(
 
 # Export UMAP values to file
 df.umap <- SingleCellExperiment::reducedDim(sce, "UMAP")
+
+# transpose for easier frontend handling
+df.umap <- t(df.umap)
 write.table(df.umap, OUTPUT_UMAP_BASE, sep='\t', quote=F)
