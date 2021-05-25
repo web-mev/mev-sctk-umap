@@ -10,7 +10,8 @@ OUTPUT_UMAP_BASE <- args[3]
 counts <- read.table(
     file = RAW_COUNT_MATRIX,
     sep = "\t",
-    row.names = 1
+    row.names = 1,
+    header=T
 )
 
 # Create an SCE object from the counts
