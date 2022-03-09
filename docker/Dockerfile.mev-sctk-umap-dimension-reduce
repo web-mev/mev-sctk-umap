@@ -1,5 +1,0 @@
-FROM hsphqbrc/sctk-base:latest
-
-ADD sctk_dimreduce.R /opt/software
-
-ENTRYPOINT ["/bin/bash"]
