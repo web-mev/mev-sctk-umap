@@ -34,7 +34,7 @@ task runUmap {
     }
 
     runtime {
-        docker: "blawney/mev-sctk-umap-dimension-reduce"
+        docker: "ghcr.io/web-mev/mev-sctk-umap"
         cpu: 4
         memory: "16 G"
         disks: "local-disk " + disk_size + " HDD"
