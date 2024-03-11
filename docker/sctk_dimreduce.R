@@ -38,7 +38,7 @@ sce <- SingleCellExperiment(
 # Also log normalizes the counts.
 # Default to 50 PCA dims. Higher than typically needed.
 # Performing UMAP (on PCA) and adding UMAP data to the SCE object
-sce <- getUMAP(
+sce <- runUMAP(
     inSCE = sce, 
     useAssay = "counts", 
     reducedDimName = "UMAP",
