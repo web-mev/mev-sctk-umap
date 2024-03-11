@@ -36,20 +36,13 @@ sce <- SingleCellExperiment(
 # PCA as a pre-processing step prior to UMAP dimensionality reduction.
 # Important to decorrelate the counts prior to UMAP.
 # Also log normalizes the counts.
-# Default to 50 PCA dims. Higher than typically needed.
+sce <- scaterlogNormCounts(sce, "logcounts")
+sce <- scaterPCA(sce, "logcounts",
+                 reducedDimName = "PCA",
+                 nComponents =PCA_DIM)
+
 # Performing UMAP (on PCA) and adding UMAP data to the SCE object
-sce <- runUMAP(
-    inSCE = sce, 
-    useAssay = "counts", 
-    reducedDimName = "UMAP",
-    logNorm = TRUE,
-    nNeighbors = 30, 
-    nIterations = 200, 
-    alpha = 1,
-    minDist = 0.01,
-    pca = TRUE,
-    initialDims = PCA_DIM
-)
+sce <- runUMAP(inSCE=sce, useReducedDim='PCA')
 
 # Export UMAP values to file
 df.umap <- SingleCellExperiment::reducedDim(sce, "UMAP")
